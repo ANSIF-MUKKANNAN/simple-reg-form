@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Admin login</title>
+    <style>
+        form{
+            margin: 50px;
+            margin-right: 500px;
+            margin-left: 500px;
+            padding: 10px;
+            font-size: large;
+            border: 1px solid;
+            border-radius: 10px;
+            background: linear-gradient(to right,rgb(120, 202, 114),rgb(89, 80, 209));
+        }
+        div{
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+        }
+        textarea{
+            border-radius: 10px;
+        }
+        button{
+            margin-left: 100px;
+            margin-right: 100px;
+            padding: 10px;
+            font-weight: bold;
+            background-color: rgb(79, 211, 255);
+            border: 1px solid;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="/alogin/" method="POST">
+        {%csrf_token%}
+        <h2>Admin Login</h2>
+        <div>
+            <p>Username</p>
+            <input type="text" name="username">
+        </div>
+        <div>
+            <p>Password</p>
+            <input type="password" name="password">
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            overflow: hidden;
+            background: black;
+        }
+        form{padding-top: 30px;
+            width: 500px;
+            margin-right: 500px;
+            margin-left: 500px;
+            font-weight: bold;
+            font-size: large;
+            background: white;
+            height: 770px;
+
+        }
+        div{
+            padding-left: 40px;
+            padding-top: 30px;
+            padding-right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        input{
+            padding: 10px;
+            border: transparent;
+            border-bottom: 1px solid gray;
+        
+        }
+        input::placeholder{
+            font-size: large;
+            padding-left: 20px;
+        }
+        button{
+            padding: 10px;
+            font-weight: bold;
+            background: linear-gradient(to right,rgb(94, 171, 180),rgb(146, 205, 211),rgba(114,120,630,655),rgba(217,60,246,855),rgba(228,58,247,655));
+            border-radius: 20px;
+            border: none;
+            color: white;
+            font-size: large;
+            margin-top: 0px;
+        }
+        #user-icon,#lock-icon {
+            position: absolute;
+            top: 76%;
+            left: 40px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            height: 25px;
+            width: 25px;
+        }
+
+    </style>
+</head>
+<body style="position: relative;">
+    <div style="height: 300px;width: 150px;background: rgb(255, 255, 255,0.2); border-radius: 10px; position: absolute; left: -130px; top: 50px;transform: rotate(60deg);"></div>
+    <div style="height: 500px;width: 800px;background: rgb(0,0,0,0.1); border-radius: 10px; position: absolute; right: -600px; top: 155px;transform: rotate(60deg);"></div>
+    <div style="margin: 0;padding: 0;">
+        <form action="/userlogin/" method="POST">
+            {%csrf_token%}
+            {% if err%}
+            <p style="color:rgb(245, 8, 8)">{{err}}</p>
+            {% endif %}
+            <h1 style="text-align: center;">Login</h1>
+    
+            <div style="position: relative;">
+                <span>Username</span>
+                <input type="text" name="email" placeholder="Type your username" class="username-input">
+            </div>
+            <div style="position: relative;">
+                <span>Password</span>
+                <input type="password" name="password"placeholder="Type your password" class="password-input">
+            </div>
+            <a href="" style="font-size: medium; color: #000; text-decoration: none; margin-left: 320px;">Forgot password?</a>
+            <div>
+                <button type="submit">LOGIN</button>
+            </div>
+            <p style="font-size: medium; margin-left: 180px;padding-top: 40px;">Or Sign Up Using</p>
+           <div style="margin-top: 30px ; font-size: medium;margin-left: 130px;">
+            <a href="" style="text-decoration: none;color: #000; padding-left: 30px;">SIGN UP</a>
+           </div>
+        </form>
+    </div>
+</body>
+</html>
